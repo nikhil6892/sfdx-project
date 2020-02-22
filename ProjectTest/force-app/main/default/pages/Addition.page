@@ -1,0 +1,16 @@
+<apex:page controller="sumcls">
+    <apex:form >
+    <apex:actionFunction name="test" action="{!result}" reRender="go">                     
+    </apex:actionFunction>   
+    
+            <apex:pageBlock >
+            <apex:inputText label="Val1" value="{!sum}" /> <br> </br>
+            <apex:inputText label="Mobile #" value="{!discount}" />
+            <br/>  
+            <apex:outputText value="{!out}" label="this is result" id="go"/>
+            
+            <br> </br>
+            <apex:commandButton action="{!result}" value="add"/>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

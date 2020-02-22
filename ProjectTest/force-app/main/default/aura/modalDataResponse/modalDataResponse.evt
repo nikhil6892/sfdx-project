@@ -1,0 +1,8 @@
+<aura:event type="COMPONENT">
+    <!-- pass context of where the event was fired to the handler.  -->
+    <aura:attribute name="building_number" type="String"/>
+    <aura:attribute name="dependant_locality" type="String"/>
+    <aura:attribute name="line_1" type="String"/>
+    <aura:attribute name="county" type="String"/>   
+    <aura:attribute name="postcode" type="String"/> 
+</aura:event>

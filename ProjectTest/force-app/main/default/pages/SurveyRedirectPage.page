@@ -1,0 +1,3 @@
+<apex:page controller="SurveyRedirectController" action="{!redirectToSurvey}" >
+    <h>Test VF Page</h>
+</apex:page>

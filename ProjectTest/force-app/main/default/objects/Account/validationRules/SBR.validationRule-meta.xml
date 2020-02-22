@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBR</fullName>
+    <active>false</active>
+    <errorConditionFormula>SBR__c &gt; 0.10</errorConditionFormula>
+    <errorMessage>Not Allowed</errorMessage>
+</ValidationRule>

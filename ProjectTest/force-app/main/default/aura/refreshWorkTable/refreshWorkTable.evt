@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="workItemList" type="List"/>
+    <aura:attribute name="workItemNameList" type="List"/>
+    <aura:attribute name="Flag" type="boolean"/>
+</aura:event>

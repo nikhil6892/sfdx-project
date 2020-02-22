@@ -1,0 +1,7 @@
+<design:component>
+		<design:attribute name="lookupField" label="Lookup Name" description="Lookup Name"/>
+        <design:attribute name="selectedManagerId" label="Manager Id" description="Lookup Selected Value"/>
+		<design:attribute name="selectedSeniorManagerId" label="Senior Manager Id" description="Lookup Selected Value"/>
+		<design:attribute name="selectedGeneralManagerId" label="General Manager Id" description="Lookup Selected Value"/>
+    	<design:attribute name="inputText" label="Input Text Field" description="Input Text Field"/>		
+</design:component>

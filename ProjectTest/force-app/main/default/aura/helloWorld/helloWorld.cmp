@@ -1,0 +1,9 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="greeting" type="String" access="global" />
+    <aura:attribute name="subject" type="String" access="global" />
+	<aura:attribute name="totalValue" type="Integer"/>
+    <div style="box">
+        <span class="greeting">Hello</span>, {!v.subject}!<br/>
+      <span class="greeting">Picklist Value :</span>, {!v.greeting}
+    </div>
+</aura:component>

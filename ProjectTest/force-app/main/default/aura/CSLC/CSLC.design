@@ -1,0 +1,11 @@
+<!--
+ - Created by lee-anneclarke on 6/20/19.
+ -->
+
+<design:component label="PLM Theme">
+    <design:attribute name="headerType" label="Header configuration" datasource="Simple header,Header with full search area" />
+    <design:attribute name="homeSearchTitle" label="Full search area title" />
+    <design:attribute name="fullWidthBody" label="Full-width page content" />
+    <design:attribute name="fullWidthPageTitle" label="Full-width page title" />
+    <design:attribute name="extraPadding" label="Add extra padding to homepage search area (for CTA component)" />
+</design:component>

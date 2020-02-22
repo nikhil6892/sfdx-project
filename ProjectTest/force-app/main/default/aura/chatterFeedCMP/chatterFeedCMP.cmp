@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId">
+    
+    <forceChatter:feed type="Topics" subjectId="0TO7F0000005Lvl" feedDesign="BROWSE"/>
+    <!--forceChatter:feed type="Record" subjectId="{!v.recordId}" feedDesign="DEFAULT"/-->
+</aura:component>

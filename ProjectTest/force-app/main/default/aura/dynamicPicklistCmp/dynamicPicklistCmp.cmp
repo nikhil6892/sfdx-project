@@ -1,0 +1,31 @@
+<aura:component implements="lightning:availableForFlowScreens,lightning:availableForFlowActions" controller="AccountController">
+    <aura:attribute name="accountList" type="String[]"/>
+    <aura:attribute name="selectedValue" type="String"/>
+    <aura:attribute name="uploadType" type="String" default="Budget"/>
+    <aura:attribute name="account" type="String" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    
+    <ui:inputSelect aura:id="upload-type" label="Upload Type" class="cpwc-form-input-select" value="{!v.uploadType}" required="true" >
+<ui:inputSelectOption text="" label=""/>
+<ui:inputSelectOption text="Budget" label="Budget"/>
+<ui:inputSelectOption text="Forecast" label="Forecast"/>
+</ui:inputSelect>
+    
+    <lightning:select aura:id="upload-type" label="Upload Type" value="{!v.uploadType}" onchange="{!c.handleChange}" required="true">
+<option value=""/>
+<option value="Budget">Budget</option>
+<option value="Forecast">Forecast</option>
+</lightning:select>
+    
+    <lightning:select name="mySelect1" class="WIDTH" onchange="{!c.handleChange}" label="PicklistField2:" aura:id="mySelect1">
+       <option text="None" value=""/> 
+        <aura:iteration items="{!v.accountList}" var="item" indexVar="index">
+            <aura:if isTrue="{!index ==0}" >
+                <option text="{!item.Name}" value="{!item.Name}"/>
+                <aura:set attribute="else">
+                    <option text="{!item.Name}" value="{!item.Name}"/>
+                    </aura:set>
+                </aura:if>
+                </aura:iteration>
+            </lightning:select>
+</aura:component>

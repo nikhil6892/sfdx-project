@@ -1,0 +1,58 @@
+<aura:component controller="LCCaseController" implements="force:lightningQuickAction,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+	<aura:attribute name="cases" type="Case[]"/>
+    <aura:attribute name="contDocId" type="ID"/>
+    <aura:attribute name="caseId" type="ID" />
+    
+  <aura:attribute name="newCase" type="Case"
+         default="{ 'sobjectType': 'Case',
+         				        'Subject': '',
+                         'Origin': '',
+                         'Status': '',
+                         'Contact': ''
+                       }"/>
+    
+
+  <!--<aura:handler name="init" value="{!this}" action="{!c.init}"/>-->
+  <!-- Input Form using components -->
+  <lightning:card iconName="action:new_case" title="Create Case">
+  <div class="container">
+    <form class="slds-form--stacked">
+      <!--div class="slds-form-element slds-is-required">
+        <div class="slds-form-element__control">
+
+          <ui:inputText aura:id="subject" label="Subject"
+                        class="slds-input"
+                        labelClass="slds-form-element__label"
+                        value="{!v.newCase.Subject}"
+                        required="true"/>
+         </div>
+       </div>
+       <div class="slds-form-element slds-is-required">
+         <div class="slds-form-element__control">
+           <ui:inputText aura:id="Description" label="Description"
+                           class="slds-input"
+                           labelClass="slds-form-element__label"
+                           value="{!v.newCase.Description}"
+                           required="true"/>
+          </div>
+        </div>
+        <div class="slds-form-element">
+          <div class="slds-form-element__control">
+            <ui:inputText aura:id="ContactEmail" label="ContactEmail"
+                          class="slds-input"
+                          labelClass="slds-form-element__label"
+                          value="{!v.newCase.ContactEmail}" 
+                          required="true"/>
+           </div>
+         </div>
+        <recordId="{!v.recordId}" recordId="5007F00000nY2xAQAS"-->
+        <lightning:fileUpload label="Add attachment" multiple="true" 
+                          recordId="0057F000001fWDY"
+                          onuploadfinished="{!c.handleUploadFinished}" />
+        <div class="slds-m-top_medium">
+                <lightning:button variant="brand" label="Save" onclick="{!c.handleSave}"/>
+            </div>
+    </form>
+  </div>
+    </lightning:card>
+</aura:component>

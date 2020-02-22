@@ -1,0 +1,8 @@
+<apex:component access="global" controller="ApexCalloutClass" allowDML="true"> 
+
+    <apex:attribute name="messageValue" type="string" description="" assignTo="{!Message}"/>
+    This is a Test Email !! <br/>{!Message}
+    <apex:panelGroup >
+        
+    </apex:panelGroup>
+</apex:component>

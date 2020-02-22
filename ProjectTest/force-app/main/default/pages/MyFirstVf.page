@@ -1,0 +1,45 @@
+<apex:page >
+ 
+    <apex:remoteObjects >
+        <apex:remoteObjectModel name="Account" fields="Name,Id"></apex:remoteObjectModel>
+    </apex:remoteObjects>
+    <script>
+    
+    var accountList = function(){
+     
+     var acc = new SObjectModel.Account();   
+     
+     acc.retrieve({ limit: 10}, function(err,records,event){
+   
+     if(err){
+         
+         alert(err.message);
+     }else{
+         
+     	var ul = document.getElementById("AccountList");
+      	records.forEach(function(record){
+         var AccTxt = record.get("Name");
+           
+         AccTxt += " -- ";
+            
+         AccTxt += record.get("Id");
+            
+         var li = document.createElement("li");
+         li.appendChild(document.createTextNode(AccTxt));
+         ul.appendChild(li);
+        });
+     }
+     
+     
+     });
+    };
+    </script>
+    
+    <h1>Retrive Account Via Remote Objects</h1>
+    <p>
+        Accounts:
+    </p>
+    <ul id="AccountList" ></ul>
+    <button onclick="accountList()">Retrieve Accounts</button>
+
+</apex:page>

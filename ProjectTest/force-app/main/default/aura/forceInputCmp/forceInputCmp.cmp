@@ -1,0 +1,4 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global"> 
+<aura:attribute name="contact" type="Contact" default="{ 'sobjectType': 'Contact' }"/> 
+<force:inputField aura:id="contactName" value="{!v.contact.Name}"/> 
+</aura:component>

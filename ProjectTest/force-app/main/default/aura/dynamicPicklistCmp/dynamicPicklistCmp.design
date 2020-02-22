@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="accountList" label="Account Name List" description="Account Name List"/>
+    <design:attribute name="selectedValue" label="SelectedValue" description="Picklist Selected Value"/>
+</design:component>

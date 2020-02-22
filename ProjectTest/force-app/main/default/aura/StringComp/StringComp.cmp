@@ -1,0 +1,5 @@
+<aura:component controller="StringController">
+    <aura:attribute name="InputStr" type="String" default="Blue"/>
+    <lightning:input type="String" name="input" label="String Input" value="{!v.InputStr}" />
+    <ui:button label="Call server" press="{!c.navigate}"/>
+</aura:component>

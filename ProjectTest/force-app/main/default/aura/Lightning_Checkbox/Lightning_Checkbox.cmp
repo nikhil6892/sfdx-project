@@ -1,0 +1,104 @@
+<aura:component implements="flexipage:availableForRecordHome,force:lightningQuickAction,lightning:actionOverride" access="global" controller="GetAddressAPI">
+    <aura:attribute name="Select2" type="boolean" default="false"/>
+    <aura:attribute name="Select3" type="boolean" default="false"/>
+    <aura:attribute name="building_number" type="String"/>
+    <aura:attribute name="dependant_locality" type="String"/>
+    <aura:attribute name="line_1" type="String"/>
+    <aura:attribute name="county" type="String"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="postcode" type="String"/>  
+    <aura:attribute name="searchResultList" type="PostCodeData[]"/>
+    <aura:attribute name="isOpen" type="boolean" default="true"/>    
+    <aura:attribute name="selection" type="Integer" />
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <!--<aura:dependency resource="markup://force:navigateToURL" type="EVENT" />-->
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    
+    <aura:registerEvent name="cmpEvent" type="c:modalData"/>
+    <!--<aura:handler name="cmpEventResponse" event="c:modalDataResponse" action="{!c.executeMyMethod}"/>
+    -->
+    <aura:method name="myMethod" action="{!c.executeMyMethod}"> 
+        <aura:attribute name="param1" type="String"/> 
+        <aura:attribute name="param2" type="String"/> 
+        <aura:attribute name="param3" type="String"/>
+        <aura:attribute name="param4" type="String"/>
+        <aura:attribute name="param5" type="String"/>        
+    </aura:method>
+    
+	<!--<ui:inputCheckbox label="Checkbox 1"  change="{!c.handleSelectAllContact}" aura:id="selectAll1"/>
+    
+    <ui:inputCheckbox label="Checkbox 2" value="{!v.Select2}" aura:id="selectAll2" disabled="{!v.Select2}"/>
+    
+    <ui:inputCheckbox label="Checkbox 3" value="{!v.Select3}" aura:id="selectAll3" disabled="{!v.Select3}"/>
+    -->
+    
+    <aura:if isTrue="{!v.Spinner}">
+    <div aura:id="spinnerId" class="slds-spinner_container">
+       <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+         <span class="slds-assistive-text">Loading</span>
+         <div class="slds-spinner__dot-a"></div>
+         <div class="slds-spinner__dot-b"></div>
+       </div>
+    </div>
+ 	</aura:if>
+    
+    <aura:if isTrue="{!v.isOpen}">
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- ###### MODAL BOX HEADER Start ######-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Address Search Component</h2>
+                    </header>
+                    <!--###### MODAL BOX BODY Part Start######-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        
+                        
+                        
+    <lightning:layout horizontalAlign="center" >
+        <lightning:layoutItem size="2" flexibility="auto" >
+    	<lightning:input type="text" name="inputpostcode" label="Post Code" aura:id="inputpostcode" value="{!v.postcode}"/> 
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4" flexibility="auto" padding="around-medium" >
+    	<lightning:buttonIcon iconName="utility:search" class="slds-button slds-button_icon slds-button_icon-brand" onclick="{! c.handleClick }" alternativeText="Search" />
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem size="6">
+        <lightning:input type="text" name="building_number" label="Building Number" value="{!v.building_number}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem size="6">
+    <lightning:input type="text" name="dependant_locality" label="Locality" value="{!v.dependant_locality}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem size="6">
+    <lightning:input type="text" name="line_1" label="Adreess Line 1" value="{!v.line_1}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem size="6">
+    <lightning:input type="text" name="county" label="County" value="{!v.county}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+                        <lightning:button label="gotoURL" onclick="{! c.navigate}" />
+                    </div>
+	<!--###### MODAL BOX FOOTER Part Start ######-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" 
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModel }"/>                        
+                    </footer>
+                </div>                                  
+    </section>
+    </aura:if>       
+    
+</aura:component>

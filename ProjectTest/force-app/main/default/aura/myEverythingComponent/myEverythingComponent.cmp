@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable">
+    <div>
+    <p>I'll have one with everything</p>
+    </div>
+</aura:component>

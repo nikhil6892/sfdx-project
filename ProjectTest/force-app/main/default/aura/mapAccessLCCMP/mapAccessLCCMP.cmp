@@ -1,0 +1,13 @@
+<aura:component controller="AccountController">
+    <aura:attribute name="accountMap" type="Map"/>
+    <aura:attribute name="accountMapList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    {!v.accountMap}
+    <aura:iteration items="{!v.accountMapList}" var="account">
+        {!account.value} ===> {!account.label}<br/>
+    </aura:iteration>
+    <lightning:recordEditForm objectApiName="Opportunity">
+        <label class="label">{! v.lookupField }</label>
+    	<lightning:inputField fieldName="AccountId" onchange="{! c.handleOnChange }" variant="label-hidden"/>
+    </lightning:recordEditForm>
+</aura:component>

@@ -1,0 +1,18 @@
+<apex:page standardController="Contact" recordSetVar="contacts">
+        <apex:includeLightning />
+
+    <div id="lightning" />
+
+    <script>
+        $Lightning.use("c:DemoApp", function() {
+          $Lightning.createComponent("c:ListViewNames",
+              {  },
+              "lightning",
+              function(cmp) {
+                  //console.log("button was created");
+                // do some stuff
+              }
+          );
+        });
+    </script>
+</apex:page>

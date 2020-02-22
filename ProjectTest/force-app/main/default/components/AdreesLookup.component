@@ -1,0 +1,8 @@
+<apex:component controller="GetAddressAPI">
+    <apex:form >
+    <apex:pageBlock >
+    	<apex:inputText id="searchTerm" label="Enter Post Code" value="{!postcode}"/>
+        <apex:commandButton Value="search" action="{!makeAPICall}"></apex:commandButton>
+    </apex:pageBlock>
+    </apex:form>
+</apex:component>

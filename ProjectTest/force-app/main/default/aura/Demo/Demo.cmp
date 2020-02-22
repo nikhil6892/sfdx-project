@@ -1,0 +1,76 @@
+<aura:component>
+    
+    <aura:attribute name="workItemList" type="List"/>
+    <aura:attribute name="productName" type="String"/>
+    <aura:attribute name="workItemNameList" type="List"/>
+    <aura:registerEvent name="refreshWorkTableEvent" type="c:refreshWorkTable"/>
+    
+    <div class="slds-grid">
+    <div class="slds-col slds-size_6-of-12">
+        <p class="slds-float--right">
+        Left Upper</p>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="slds-col slds-size_6-of-12">
+        Right Upper
+        </div>
+    </div>
+    <div class="slds-grid">
+    <div class="slds-col slds-size_6-of-12 .slds-align_absolute-right">
+    <lightning:button class="firstBtnLeft" label="1" name="LU_1" aura:id="LU1" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="2" name="LU_2" aura:id="LU2" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="3" name="LU_3" aura:id="LU3" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="4" name="LU_4" aura:id="LU4" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="5" name="LU_5" aura:id="LU5" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="6" name="LU_6" aura:id="LU6" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="7" name="LU_7" aura:id="LU7" onclick="{!c.handleClick}"/>
+	<lightning:button class="slds-float--right" label="8" name="LU_8" aura:id="LU8" onclick="{!c.handleClick}"/>
+        </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="slds-col slds-size_6-of-12">
+    <lightning:button class="" label="1" name="RU_1" aura:id="RU1" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="2" name="RU_2" aura:id="RU2" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="3" name="RU_3" aura:id="RU3" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="4" name="RU_4" aura:id="RU4" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="5" name="RU_5" aura:id="RU5" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="6" name="RU_6" aura:id="RU6" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="7" name="RU_7" aura:id="RU7" onclick="{!c.handleClick}"/>
+	<lightning:button class="" label="8" name="RU_8" aura:id="RU8" onclick="{!c.handleClick}"/>
+        </div>
+    </div>
+    <br/>
+    <div class="slds-grid">
+    <div class="slds-col slds-size_6-of-12">
+    <lightning:button class="firstBtnLeft" label="1" name="LL_1" aura:id="LL1" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="2" name="LL_2" aura:id="LL2" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="3" name="LL_3" aura:id="LL3" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="4" name="LL_4" aura:id="LL4" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="5" name="LL_5" aura:id="LL5" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="6" name="LL_6" aura:id="LL6" onclick="{!c.handleClick}"/>
+    <lightning:button class="slds-float--right" label="7" name="LL_7" aura:id="LL7" onclick="{!c.handleClick}"/>
+	<lightning:button class="slds-float--right" label="8" name="LL_8" aura:id="LL8" onclick="{!c.handleClick}"/>
+        </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="slds-col slds-size_6-of-12">
+    <lightning:button class="" label="1" name="RL_1" aura:id="RL1" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="2" name="RL_2" aura:id="RL2" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="3" name="RL_3" aura:id="RL3" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="4" name="RL_4" aura:id="RL4" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="5" name="RL_5" aura:id="RL5" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="6" name="RL_6" aura:id="RL6" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="7" name="RL_7" aura:id="RL7" onclick="{!c.handleClick}"/>
+	<lightning:button class="" label="8" name="RL_8" aura:id="RL8" onclick="{!c.handleClick}"/>
+        </div>
+        </div>
+    <div class="slds-grid">
+    <div class="slds-col slds-size_6-of-12">
+        <p class="slds-float--right">
+        Left Lower</p>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="slds-col slds-size_6-of-12">
+        Right Lower
+        </div>
+    </div>
+    
+</aura:component>

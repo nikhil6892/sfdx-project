@@ -1,0 +1,66 @@
+<aura:component implements="lightning:availableForFlowScreens">
+    <aura:attribute name="productName" type="String" default="PFM"/>
+    <aura:attribute name="workItemListFromEvent" type="List"/>
+    <aura:attribute name="workItemNameList" type="List"/>
+    <aura:attribute name="Flag" type="boolean"/>
+    <aura:attribute name="numEvents" type="Integer" default="0"/>
+	<aura:attribute name="columns" type="List"/>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <!-- Note that name="cmpEvent" in aura:registerEvent
+     in ceNotifier.cmp -->
+    <aura:handler name="refreshWorkTableEvent" event="c:refreshWorkTable" action="{!c.handleComponentEvent}"/>
+	
+    <div style="font-size:24px">Product Selected : {!v.productName} </div><br/>
+    <!-- handler contains the notifier component -->
+    <c:Demo/><br/>
+    
+    <div class="slds-grid slds-gutters">
+  	<div class="slds-col">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col"></div>
+            <div class="slds-col">
+    <lightning:button class="" label="A1" name="A1" aura:id="A1" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="A2" name="A2" aura:id="A2" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="A3" name="A3" aura:id="A3" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="A3.5" name="A3.5" aura:id="A3.5" onclick="{!c.handleClick}"/><br/>
+    <lightning:button class="" label="B1" name="B1" aura:id="B1" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="B2" name="B2" aura:id="B2" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="B3" name="B3" aura:id="B3" onclick="{!c.handleClick}"/>
+	<lightning:button class="lastBtn" label="B4" name="B4" aura:id="B4" onclick="{!c.handleClick}"/><br/>
+    <lightning:button class="" label="C1" name="C1" aura:id="C1" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="C2" name="C2" aura:id="C2" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="C3" name="C3" aura:id="C3" onclick="{!c.handleClick}"/>
+    <lightning:button class="lastBtn" label="C4" name="C4" aura:id="C4" onclick="{!c.handleClick}"/><br/>
+    <lightning:button class="" label="D1" name="D1" aura:id="D1" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="D2" name="D2" aura:id="D2" onclick="{!c.handleClick}"/>
+    <lightning:button class="" label="D3" name="D3" aura:id="D3" onclick="{!c.handleClick}"/>
+	<lightning:button class="lastBtn" label="D4" name="D4" aura:id="D4" onclick="{!c.handleClick}"/>    
+  	</div>
+            <div class="slds-col"></div>
+        </div>
+        </div>
+	<div class="slds-col">
+    <table class="slds-table slds-table--bordered">    	
+		<thead>
+		<tr class="slds-text-heading--label">            	
+                 <aura:iteration items="{!v.columns}" var="col">                     
+		<th> {!col.label} </th>  
+                </aura:iteration>                
+            </tr>        	 
+    </thead>
+    <tbody>
+    	<aura:iteration items="{!v.workItemListFromEvent}" var="workItem" indexVar="index">       
+			<tr class="slds-hint-parent"> 
+            	<td>{!index+1}</td>    	                  
+				<td>{!workItem}</td>       
+            </tr>
+        </aura:iteration>              
+	</tbody> 
+    </table>
+        </div>
+        <div class="slds-col"></div>
+</div>
+    
+    <p>Total Number of Items Selected: {!v.numEvents}</p>
+</aura:component>

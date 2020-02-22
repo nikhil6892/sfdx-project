@@ -1,0 +1,6 @@
+<aura:component implements="lightning:availableForFlowScreens,lightning:availableForFlowActions">
+    <aura:attribute name="totalValue" type="String"/>
+    <aura:attribute name="resulttotalValue" type="String"/>
+    <lightning:button label="Concatenate String" onclick="{!c.concatenateValue }"/>
+    <br/>Flow Variable Current Value: {!v.totalValue}
+</aura:component>

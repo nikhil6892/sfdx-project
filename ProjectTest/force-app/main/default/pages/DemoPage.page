@@ -1,0 +1,15 @@
+<apex:page sidebar="false">
+    <!--<apex:stylesheet value="{!URLFOR($Resource.SLDS0121, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />-->
+    <apex:includeLightning />
+    <div id="containerLight">
+        <div id="Lightning"/>
+    </div>
+    
+    <script>
+    	$Lightning.use("c:DemoApp", function(){
+            $Lightning.createComponent("c:Demo",{},"Lightning",function(cmp){
+            	
+            });
+        });
+    </script>
+</apex:page>

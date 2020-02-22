@@ -1,0 +1,18 @@
+<!--aura:component controller="AccountController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,lightning:actionOverride" access="global"> 
+<lightning:recordEditForm recordId="0067F00000PNeVCQA1" objectApiName="OpportunityContactRole" onsuccess="{!c.navigate}"> 
+<lightning:messages /> 
+<lightning:inputField fieldName="OpportunityId" /> 
+<lightning:inputField fieldName="ContactId" /> 
+<lightning:inputField fieldName="Role" /> 
+<lightning:inputField fieldName="IsPrimary" />  
+<lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" /> 
+</lightning:recordEditForm> 
+</aura:component-->
+
+<aura:component implements="force:lightningQuickAction,lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId" description="My Lightning Component">
+    <lightning:quickActionAPI aura:id="quickActionAPI" />
+    <div>
+        <lightning:button label="Select Update Case Action" onclick="{!c.selectUpdateCaseAction}"/>
+        <lightning:button label="Update Case Status Field" onclick="{!c.updateCaseStatusAction}"/>
+    </div>
+</aura:component>

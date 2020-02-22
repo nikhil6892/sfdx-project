@@ -1,0 +1,91 @@
+<apex:page standardController="Contact" renderAs="Pdf" applyBodyTag="false" recordSetVar="contacts">
+    <head>
+        <style> 
+            body { font-family: 'Arial Unicode MS'; }
+            .companyName { font: bold 20px;}
+            .tableHeaderFont { font: bold 14px;} 
+            .tablerowfont { font: 12px;}  
+            .cellLeftT {
+  border-collapse: collapse;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  text-decoration: overline;
+}
+
+.cellRightT {
+  border-collapse: collapse;
+  border-bottom: 1px solid;
+  padding-right:0px;
+}
+
+.cellLeftD {
+  border-collapse: collapse;
+  border-right: 1px solid;
+}
+
+.cellRightD {
+  border-collapse: collapse;
+  
+}
+
+.cell {
+  border-collapse: collapse;
+  border: 1px solid;
+  page-break-inside:avoid;
+  page-break-after:auto;
+}
+
+.table {
+  border-collapse: collapse;
+  border-style: hidden;
+  border-spacing: 0px;
+  -fs-table-paginate: paginate;
+}
+
+.tableChild {
+  padding:5px;
+}
+
+.table-head > .row {
+  border-collapse: collapse;
+  border: 2px solid;
+}
+        </style>
+    </head>
+    <body>
+        <center>
+        <h1 class="companyName">Zahn Xcellence Dental Lab</h1>
+        
+        <apex:panelGrid columns="1" width="100%">
+            <table class="table">
+            <thead class="thead">
+            <tr class="row">
+            <th class="cell tableHeaderFont">Name</th>
+            <th class="cell tableHeaderFont">Work Details</th>
+            <th class="cell tableHeaderFont">Amount</th>
+            </tr>
+            </thead>
+            <apex:repeat var="contact" value="{!contacts}">
+            
+            <tr class="row">
+            <td class="cell tablerowfont">{!contact.FirstName}</td>
+            <td class="cell tableChild">
+            <table class="table">
+                <tr class="row">
+                    <td class="cellLeftT tablerowfont">1</td>
+                    <td class="cellRightT tablerowfont">3</td>
+                </tr>
+                <tr class="row">
+                    <td class="cellLeftD tablerowfont">7 6 8</td>
+                    <td class="cellRightD tablerowfont">5 4 2</td>
+                </tr>
+            </table>
+            </td>
+            <td class="cell tablerowfont">{!contact.Phone}</td>
+            </tr>
+            </apex:repeat>
+            </table>
+        </apex:panelGrid>
+        </center>
+    </body>
+</apex:page>

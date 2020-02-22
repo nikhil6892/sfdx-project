@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <force:recordData aura:id="propertyService"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.simpleRecord}"
+                      layoutType="FULL"
+                      mode="EDIT"/>
+    <div class="slds-card">
+    <lightning:picklistPath aura:id="picklistPath" recordId="{!v.recordId}" 
+                            variant="non-linear"
+                            picklistFieldApiName="CustomerPriority__c"
+                            onselect="{!c.handleSelect}"/>
+    </div>	
+</aura:component>

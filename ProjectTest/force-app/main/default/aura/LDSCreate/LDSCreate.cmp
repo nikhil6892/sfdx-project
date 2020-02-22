@@ -1,0 +1,18 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForRecordHome,force:hasRecordId" controller="LCCaseController">
+    <aura:attribute name="recordTypeList" type="String[]"/>
+    <aura:attribute name="recordTypeId" type="String" default="0127F000000ERLsQAO"/>
+    <aura:attribute name="recordTypeInfo" type="Map"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:select name="RecordTypeName" class="WIDTH" onchange="{!c.handleChange}" label="Record Type:" aura:id="mySelect1">
+        <aura:iteration items="{!v.recordTypeList}" var="item" indexVar="index">
+            <aura:if isTrue="{!index ==0}" >
+                <option text="{!item}" value="{!item}"/>
+                <aura:set attribute="else">
+                    <option text="{!item}" value="{!item}"/>
+                    </aura:set>
+                </aura:if>
+                </aura:iteration>
+            </lightning:select>
+    <lightning:button variant="brand" label="Next" onclick="{!c.next}"/>
+</aura:component>

@@ -1,0 +1,41 @@
+<aura:component implements="force:appHostable,lightning:availableForFlowScreens"
+                access="global"
+                controller="AccountController">
+    
+    <aura:attribute type="Task[]" name="taskList"/>
+    <aura:attribute type="Account[]" name="acctList"/>
+    <aura:attribute type="Account[]" name="selectedAcctList"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="sortedBy" type="String" default="Name"/>
+    <aura:attribute name="sortedDirection" type="String" default="asc"/>
+    <!-- This attribute will hold the update records from data table-->
+    <aura:attribute name="updatedRecord" type="Object[]" />
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <lightning:card title="Account Editable Datatable">
+            
+        <!--lightning:datatable
+                             aura:id="accountDataTable"
+                             columns="{! v.columns }"
+                             data="{! v.acctList}"
+                             keyField="Id"
+                             onsave ="{!c.onSave}"
+                             hideCheckboxColumn="false"
+                             onrowaction="{! c.handleRowAction}"
+                             onsort="{!c.updateColumnSorting}"
+                         	 sortedBy="{!v.sortedBy}"  
+                         	 sortedDirection="{!v.sortedDirection}"
+                             onrowselection ="{! c.getSelectedRecord}"
+                             
+                
+                maxRowSelection="{! v.maxRowSelection }"
+                selectedRows="{! v.preSelectedIds }"                 
+                onrowselection="{! c.getSelectedName }"
+                hideCheckboxColumn="{! v.hideCheckboxColumn }"
+                onsort="{! c.updateColumnSorting }"
+                suppressBottomBar="true"
+                oncellchange="{! c.handleSave }/-->
+    </lightning:card>
+</aura:component>

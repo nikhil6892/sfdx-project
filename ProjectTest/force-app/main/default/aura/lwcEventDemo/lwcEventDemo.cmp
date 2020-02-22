@@ -1,0 +1,8 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+	<aura:attribute name="textFromEvent" type="String" />
+    <lightning:card>
+            In Parent Lightning Component Aura: {!v.textFromEvent}
+            <c:contactList oncontactselect = "{!c.lwcEventHandler}" />
+    </lightning:card>
+            
+</aura:component>

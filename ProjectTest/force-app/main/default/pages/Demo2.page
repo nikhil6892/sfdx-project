@@ -1,0 +1,14 @@
+<apex:page controller="exampleJs">
+    <apex:form >
+    <apex:actionFunction name="doInit" action="{!init}" reRender="allpannel"/>
+    <script>
+        window.onload=function(){
+            doInit();
+        };
+    </script>
+    
+        <apex:outputPanel id="allPanel">
+        <apex:outputText value="{!result}"/>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

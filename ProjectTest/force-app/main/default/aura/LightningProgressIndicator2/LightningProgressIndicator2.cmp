@@ -1,0 +1,84 @@
+<!--
+ * sfdcmonkey.com 
+ * 11/17/2017
+ * support API 41.0 and above
+ *-->
+<aura:component >
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <!--currentStep attribute will control the steps of progress indicator-->
+    <aura:attribute name="currentStep" type="string" default="1"/>
+    <!--Use "slds-m-around_xx-large" class to add standard Large padding to the component--> 
+    <lightning:input type="String"
+                     label="Renewal Date" />
+    <div class="slds-m-around_xx-large">
+        
+        <lightning:button variant="brand" 
+                          label="Click to Open"
+                          title="Click to Open"
+                          onclick="{! c.openModel }"/> 
+        
+        <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->    
+        <aura:if isTrue="{!v.isOpen}">
+            
+            <!--###### MODAL BOX Start From Here ######--> 
+            <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+                    <div class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="header99" class="slds-text-heading--medium">About Sfdcmonkey.com</h2>
+                        <br/>
+                        
+                        <!--lightning progressIndicator start-->
+                        <lightning:progressIndicator currentStep="{!v.currentStep}" type="base">
+                            <lightning:progressStep label="Step One" value="1" onclick="{!c.selectFromHeaderStep1}"/>
+                            <lightning:progressStep label="Step Two" value="2" onclick="{!c.selectFromHeaderStep2}"/>
+                            <lightning:progressStep label="Step Three" value="3" onclick="{!c.selectFromHeaderStep3}"/>
+                        </lightning:progressIndicator>
+                    </div>
+                    
+                    <!--###### MODAL BOX BODY Part Start From Here ######-->
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <!--showing 3 screens based on progress indicator steps-->
+                        <div class="{!v.currentStep == '1' ? 'slds-show' : 'slds-hide'}" style="color:red" >
+                            <p>Hello i am the Step 1</p>
+                        </div>
+                        <div class="{!v.currentStep == '2' ? 'slds-show' : 'slds-hide'}" style="color:green">
+                            Hello i am the Step 2
+                        </div>
+                        <div class="{!v.currentStep == '3' ? 'slds-show' : 'slds-hide'}" style="color:blue" >
+                            Hello i am the Step 3
+                        </div>
+                    </div>
+                    
+                    <!--###### MODAL BOX FOOTER Part Start From Here ######-->
+                    <div class="slds-modal__footer slds-modal__footer_directional">
+                        <lightning:button disabled="{!v.currentStep != '1' ? '' : 'disabled'}"
+                                          variant="neutral" 
+                                          label="Back"
+                                          title="Back"
+                                          onclick="{! c.moveBack }"/>
+                        <aura:if isTrue="{!v.currentStep != '3'}">
+                            <lightning:button variant="brand" 
+                                              label="Next"
+                                              title="Next"
+                                              onclick="{! c.moveNext }"/>
+                        </aura:if>
+                        <aura:if isTrue="{!v.currentStep == '3'}"> 
+                            <lightning:button variant="brand" 
+                                              label="Finish"
+                                              title="Finish"
+                                              onclick="{! c.finish }"/>  
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <!--###### MODAL BOX Part END Here ######-->
+        </aura:if>
+    </div>
+</aura:component>
