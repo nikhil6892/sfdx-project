@@ -1,0 +1,7 @@
+<apex:page standardController="Account" extensions="FlowExtensions" lightningStylesheets="true">
+    
+    
+    <flow:interview name="FlowToApex" interview="{!myflow}" finishLocation="{!FinishPageRef}" >        
+    </flow:interview>
+            
+</apex:page>

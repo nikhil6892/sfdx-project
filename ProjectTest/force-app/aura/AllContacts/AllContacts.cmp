@@ -1,0 +1,10 @@
+<aura:component controller="ReturnContact">
+    <aura:attribute name="contacts" type="Contact[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:iteration items="{!v.contacts}" var="con">
+    	<li>
+        	<p>{!con.FirstName}</p>            
+        </li>
+    </aura:iteration>
+</aura:component>

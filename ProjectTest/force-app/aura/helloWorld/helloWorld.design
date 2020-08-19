@@ -1,0 +1,5 @@
+<design:component>
+   <design:attribute name="greeting" label="Greeting" />
+   <design:attribute name="subject" label="Name" />
+   <design:attribute name="totalValue" label="Total" description=""/>
+</design:component>

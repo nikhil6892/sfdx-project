@@ -1,0 +1,16 @@
+<!--c:createComponent-->
+<aura:component implements="lightning:actionOverride,force:hasRecordId" description="My Lightning Component">
+    <aura:attribute name="recordId" type="String"/>
+    <lightning:workspaceAPI aura:id="workspace" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="object" type="String" default="OpportunityLineItem" access="public"></aura:attribute>
+    <aura:attribute name="lookupField" type="String" default="OpportunityId" access="public"></aura:attribute>
+    <aura:attribute name="selectedRecordId" type="String" access="public"></aura:attribute>
+    
+    <lightning:recordEditForm objectApiName="{! v.object }">
+        <label class="label">AccountId</label>
+    	<lightning:inputField fieldName="{! v.lookupField }" onchange="{! c.handleOnChange }" variant="label-hidden"/>
+    </lightning:recordEditForm>
+</aura:component>

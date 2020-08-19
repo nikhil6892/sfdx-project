@@ -1,0 +1,51 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId">
+    <aura:attribute name="disabled" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String" default="0017F00001B4y1ZQAR"/>
+    <aura:attribute name="ErrorMessage" type="String[]" />
+    <aura:attribute name="saved" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
+    <aura:attribute name="showError" type="Boolean" default="false" />
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner />
+    </aura:if>
+    
+    <!--aura:if isTrue="{!v.showError}"> 
+        <ui:message class="err" title="" severity="error" closable="false">
+            <p style="color:white;padding:3px">Review the errors on this page</p>
+		</ui:message>
+        <aura:iteration items="{!v.ErrorMessage}" var="err">
+   			<p class="textColor">{!err}</p>
+ 		</aura:iteration>
+    </aura:if-->
+    <aura:if isTrue="{!!v.saved}">
+        
+        <lightning:recordEditForm
+            onload="{!c.handleLoad}"
+            onsubmit="{!c.handleSubmit}"
+            onsuccess="{!c.handleSuccess}"
+            recordTypeId="{!recordTypeId}"
+            recordId="{!v.recordId}"
+            objectApiName="Account" onerror="{!c.handleError}" > 
+            <!-- the messages component is for error messages -->
+            <lightning:messages />
+            <lightning:outputField fieldName="recordTypeId"/>
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="ParentId" />
+            <lightning:inputField fieldName="SBR__c" />
+           
+            <lightning:inputField fieldName="MODS__c" aura:id="MODS" messageWhenBadInput="You must say foo"/>
+            <lightning:inputField fieldName="Status__c" />
+            
+            <div class="slds-m-top_medium">
+                <lightning:button variant="brand" type="submit" name="save" label="Save" />
+            </div>
+             
+        </lightning:recordEditForm>
+            
+        <aura:set attribute="else">
+            <p>Saved!</p>
+           
+        </aura:set>
+    </aura:if>
+
+</aura:component>

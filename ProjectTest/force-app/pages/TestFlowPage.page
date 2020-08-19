@@ -1,0 +1,7 @@
+<apex:page standardController="Account" extensions="PicklistValueController">
+  <!-- Begin Default Content REMOVE THIS -->
+  <!--flow:interview name="HelloWorldFlow"/-->
+  {!contentVersionId}
+     <img src='/sfc/servlet.shepherd/version/download/{!contentVersionId}'/>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

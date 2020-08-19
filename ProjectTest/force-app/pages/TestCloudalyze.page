@@ -1,0 +1,14 @@
+<apex:page standardController="Opportunity" recordSetVar="contacts" tabstyle="account" sidebar="false">
+  <apex:slds />
+    <apex:pageBlock >
+    <apex:form >
+      <apex:pageBlockTable value="{!contacts}" var="opp" id="list">
+       <apex:column >
+        <apex:outputLink value="{!URLFOR($Action.Opportunity.View, opp.Id)}" >
+                    {!opp.name}
+                </apex:outputLink>
+                </apex:column>
+      </apex:pageBlockTable>
+    </apex:form>
+  </apex:pageBlock>
+</apex:page>

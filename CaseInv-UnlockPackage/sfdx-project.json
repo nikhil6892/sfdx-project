@@ -1,0 +1,20 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "MyUnlockPackage1",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "47.0",
+    "packageAliases": {
+        "MyUnlockPackage1": "0HoB0000000CazpKAC",
+        "MyUnlockPackage1@0.1.0-1": "04tB0000000Oe41IAC",
+        "MyUnlockPackage1@0.1.0-2": "04tB0000000Oe46IAC",
+        "MyUnlockPackage1@0.1.0-3": "04tB0000000Oe4BIAS"
+    }
+}

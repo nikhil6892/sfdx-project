@@ -1,0 +1,7 @@
+<apex:page standardController="Contact" extensions="Calloutcontroller">
+    <apex:form >
+    <apex:outputText value="{!response}"></apex:outputText>
+    <apex:commandButton action="{!performcallout}" value="Callout" id="theButton"/>
+
+    </apex:form>
+</apex:page>

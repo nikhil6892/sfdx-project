@@ -1,0 +1,1 @@
+<apex:page standardController="Case" recordSetVar="cases" extensions="CaseOwnerUpdateController" action="{!updateOwnerToCurrentUser}"/>

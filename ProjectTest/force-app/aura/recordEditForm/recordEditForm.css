@@ -1,0 +1,11 @@
+.THIS {
+  background-color: white; 
+}
+.THIS.textColor{
+    color: red;
+    padding: 4px;
+}
+
+.THIS.err{
+  background-color: #C23934; 
+}

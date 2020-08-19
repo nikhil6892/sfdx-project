@@ -1,0 +1,18 @@
+<aura:component implements="lightning:availableForFlowScreens"> <!--controller="FlowUniquePicklistValue"-->
+    <aura:attribute name="object" type="String" default="Contact" access="public"></aura:attribute>
+    <aura:attribute name="lookupField" type="String" default="Manager__c" access="public"></aura:attribute>
+    <aura:attribute name="selectedRecordId" type="String" access="public"></aura:attribute>
+    
+    <aura:attribute name="selectedManagerId" type="String" access="public"></aura:attribute>
+    <aura:attribute name="selectedSeniorManagerId" type="String" access="public"></aura:attribute>
+    <aura:attribute name="selectedGeneralManagerId" type="String" access="public"></aura:attribute>
+    <aura:attribute name="inputText" type="String" access="public"></aura:attribute>
+    <!--aura:handler name="init" action="{!c.doInit}" value="{!this}"/-->
+	Name:{!v.inputText}
+    <!--lightning:recordEditForm objectApiName="{! v.object }">
+        <label class="label">{! v.lookupField }</label>
+    	<lightning:inputField aura:id="lookupField" fieldName="{! v.lookupField }" required="true" onchange="{! c.handleOnChange }" variant="label-hidden"/>
+    </lightning:recordEditForm>
+    	<lightning:textarea type="text" name="input4" label="Input Field 1:" required="true" placeholder="type here..." value="{!v.inputText}" maxlength="2000"/>
+    <lightning:button label="Submit" onclick="{!c.doAction}"/-->
+</aura:component>

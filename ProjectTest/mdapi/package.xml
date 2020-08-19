@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <name>ApexPage</name>
+    <members>MyProfilePage</members>
+  </types>
+  <types>
+    <name>Profile</name>
+    <members>Chatter External User</members>
+    <members>Chatter Free User</members>
+    <members>Chatter Moderator User</members>
+    <members>Company Communities User</members>
+    <members>Guest</members>
+    <members>Guest License User</members>
+  </types>
+  <types>
+    <name>ApexClass</name>
+    <members>AccountController</members>
+  </types>
+  <version>47.0</version>
+</Package>

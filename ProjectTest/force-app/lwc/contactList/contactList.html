@@ -1,0 +1,17 @@
+<template>
+    <template if:true={contacts.data}>
+    <!--template for:each={contacts.data} for:item="contact">
+    <li key={contact.Id} id={contact.Id} class="contactId" data-item={contact}
+    onclick={handleSelect}>{contact.Name}</li>
+    </template-->
+    <ul class="slds-m-around_medium">
+        <template iterator:it={contacts.data}>
+            <li key={it.value.Id}>
+                <div if:true={it.first}></div>
+                {it.value.Name}, {it.value.Title}
+                <div if:true={it.last}></div>
+            </li>
+        </template>
+    </ul>
+    </template>
+    </template>

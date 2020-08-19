@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="slds-card">
+      <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+        <h2 class="slds-text-title--caps slds-p-around--medium" id="entity-header">Results for 'CO'</h2>
+        <ul>
+          <li class="slds-is-active">
+            <a href="javascript:void(0);" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">
+              All
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">
+              Accounts
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">
+              Contacts
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">
+              Leads
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </aura:component>

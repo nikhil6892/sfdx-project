@@ -1,0 +1,5 @@
+<apex:page standardController="Account">
+
+    <apex:canvasApp developerName="Salesforce_to_Salesforce"  
+        height="400px" width="750px"/>
+</apex:page>

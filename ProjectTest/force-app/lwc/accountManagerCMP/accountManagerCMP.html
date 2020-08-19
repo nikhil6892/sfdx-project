@@ -1,0 +1,19 @@
+<template>
+        <br/>In Child Lightning Web Component
+    <lightning-card title="All Accounts">
+        <ul>
+            
+            <template for:each={accounts.data} for:item="account">
+                <li key={account.Id} id={account.Id} class="accountId" data-item={account} 
+                onclick={handleItemClicked}>{account.Name}</li>
+            </template>
+        </ul>
+    </lightning-card>
+    <lightning-input type="search" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search"></lightning-input>
+    <template if:true={resultAccounts}>
+        <template for:each={resultAccounts} for:item="account">
+            <li key={account.Id} id={account.Id} class="accountId" data-item={account} 
+            onclick={handleItemClicked}>{account.Name}</li>
+        </template>
+    </template>
+</template>

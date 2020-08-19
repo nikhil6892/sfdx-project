@@ -1,0 +1,35 @@
+<!--ModalPopup.app-->
+<aura:component implements="force:lightningQuickAction,lightning:actionOverride,force:hasRecordId">
+    <aura:attribute name="openModal" type="boolean" default="true"/>
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+        <aura:if isTrue="{!v.openModal}">
+            <!--Modal Box Start-->
+            {!v.recordId}
+            <div role="dialog" class="slds-modal slds-fade-in-open ">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h1 class="slds-text-heading--medium">Nikhil Pasalkar</h1>
+                    </div>
+                     
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center> <p><b>
+                            Welcome to New Opportunity
+                            </b>
+                            </p></center>
+                    </div>
+                    <!--Modal Box Button-->
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button--brand" onclick="{!c.handleCloseModal}">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>            
+        </aura:if>
+</aura:component>

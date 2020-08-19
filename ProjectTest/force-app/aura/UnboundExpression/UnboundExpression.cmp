@@ -1,0 +1,14 @@
+<aura:component >
+    <aura:attribute name="attr1" type="String" default="I love Lightning"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-box">
+        <p>PARENT COMPONENT</p>
+        <lightning:formattedText value="{!v.attr1}"/>
+        <lightning:button class="slds-m-left_medium" variant="brand" label="Submit" onclick="{!c.handleButtonClick}"/>
+    </div>
+    <div class="slds-box">
+        <p>CHILD COMPONENT</p>
+        <c:UnboundExpressionSubcomponent attr2="{#v.attr1}"/>    
+    </div>
+</aura:component>

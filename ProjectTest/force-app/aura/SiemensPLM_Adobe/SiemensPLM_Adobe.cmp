@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" > 
+    <aura:attribute name="routeChangeCounter" default="0" type="Integer" required="false"/>
+    <aura:handler event="forceCommunity:routeChange" action="{!c.handleRouteChange}"/>
+    <h5>Route was changed: {!v.routeChangeCounter} times</h5>
+</aura:component>

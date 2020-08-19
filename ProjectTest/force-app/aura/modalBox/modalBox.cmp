@@ -1,0 +1,48 @@
+<aura:component implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId,lightning:actionOverride" access="global">
+    <aura:attribute name="selection" type="Integer" />
+    <aura:attribute name="searchResultList" type="PostCodeData[]" />
+    <aura:attribute name="isOpen1" type="boolean" default="false"/>   
+    <aura:attribute name="recordId" type="String" />
+    <aura:handler name="cmpEvent" event="c:modalData" action="{!c.handleComponentEvent}"/>
+    
+    
+    
+    <aura:if isTrue="{!v.isOpen1}">
+	<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal slds-fade-in-open">
+                    
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Search Results</h2>
+                    </header>
+                   
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:iteration items="{!v.searchResultList}" var="acc" indexVar="index">                        	
+                            <lightning:layout horizontalAlign="center">
+        					<lightning:layoutItem size="8">
+    							<lightning:input type="radio" id="{!index}" name="dependant_locality" label="{!acc.resultString}" onchange="{!c.handleRadiobtnClick}"/>
+        					</lightning:layoutItem>
+    						</lightning:layout>
+                        </aura:iteration>
+                    </div>
+                   
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" 
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModel }"/>
+                        <lightning:button variant="brand" 
+                                          label="Done"
+                                          title="Done"
+                                          onclick="{! c.done }"/>
+                    </footer>
+                </div>
+            </section>
+    </aura:if>
+   <c:Lightning_Checkbox aura:id="child"/>	
+
+</aura:component>

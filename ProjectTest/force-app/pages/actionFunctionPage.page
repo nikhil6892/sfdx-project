@@ -1,0 +1,73 @@
+<apex:page standardController="Account" extensions="ActionFunctionDemoController" lightningStylesheets="true" docType="html-5.0">
+
+
+    <apex:form >
+        <script>  
+  function onControllerReturn() {
+    alert('{!message}')
+  }
+  </script>
+  
+        <apex:actionFunction name="doControllerSave" action="{!save}" 
+    rerender="jspanel"/>
+       
+        <p><apex:outputText value="datas {!message}" id="showstate" /></p>
+
+
+    <apex:outputlink onclick="doControllerSave()" styleClass="btn" > Click Me 
+    </apex:outputlink>
+        <apex:pageBlock >
+           
+         <apex:pageBlockButtons >
+    <apex:commandButton onclick="doControllerSave();" 
+      oncomplete="onControllerReturn()" value="Save"/>
+      <apex:outputlink onclick="doControllerSave()" styleClass="btn" > Click Me 
+    </apex:outputlink>
+  </apex:pageBlockButtons>
+ 
+  
+            <apex:actionFunction action="{!InsertRecord}" name="InsertRecord_JS"  oncomplete="CallWebService_JS();"/>
+            <apex:actionFunction action="{!CallWebService}" name="CallWebService_JS"/>
+         
+          
+            <apex:pageMessages ></apex:pageMessages>
+           
+         
+            <apex:pageBlockButtons location="bottom">
+                
+                <apex:commandButton value="Amend Subscription" action="{!InsertRecord}" Rerender="statuses" status="Status1" oncomplete="CallWebService_JS();" />
+                                              
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Account Information" columns="3">
+                <apex:pageBlockSection columns="1">
+                    <apex:outputField value="{!Account.Name}" />
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="1">
+                    <apex:selectList size="1"  label="Contact" value="{!contactId}"  styleClass="contactClass" required="true">
+                        <apex:selectOptions value="{!contactIdList}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:inputField value="{!followUpCase.Origin}" required="true"/>
+
+                 
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="1">
+                    <!--apex:selectList size="1"  label="Subscription " value="{!subscriptionId}"  styleClass="subscriptionIdClass" required="true">
+                        <apex:selectOptions value="{!subscriptionOptionList}"></apex:selectOptions>
+                    </apex:selectList-->
+                    <apex:inputCheckbox styleClass=" " value="{!billRun}" label="Generate Invoice" />
+                    <apex:inputCheckbox styleClass=" " value="{!processPayment}" label="Process Payment" />
+                </apex:pageBlockSection>
+            </apex:pageBlockSection>
+       
+            <h3>
+                Subscription Rate Plan Need to be Amended
+            </h3> 
+            
+        </apex:pageBlock>
+       
+    </apex:form>
+   
+</apex:page>

@@ -1,0 +1,10 @@
+<aura:component implements="force:lightningQuickAction">
+    <aura:attribute name="accountName" type="String"/>
+    <aura:attribute name="accountNumber" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <!-- <lightning:input lable="Account Name" value="{!v.accountName}"/>
+    <lightning:input lable="Account Number" value="{!v.accountNumber}"/> 
+    
+    <lightning:button variant="brand" label="Save" onclick="{!c.handleSave}" />-->
+</aura:component>

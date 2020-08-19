@@ -1,0 +1,87 @@
+<aura:component controller="SearchResultsController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:attribute name="contacts" type="Contact[]"/>
+    <aura:attribute name="leads" type="Lead[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-card">
+      <h2 class="slds-text-heading--medium slds-p-vertical--medium">Accounts</h2>
+      <div class="slds-grid">
+        <ul class="slds-col slds-size--1-of-1">
+          <aura:iteration items="{!v.accounts}" var="account">
+            <li class="slds-size--1-of-3 slds-show--inline-block">
+              <lightning:card variant="narrow" iconName="standard:account" class="slds-m-around--small  slds-card_boundary">
+                <aura:set attribute="title">
+                  {!account.Name}
+                </aura:set>
+                <div class="slds-tile slds-p-horizontal--large">
+                  <div class="slds-tile__detail slds-text-body--small">
+                    <dl class="slds-list--horizontal slds-wrap">
+                      <dt class="slds-item--label slds-text-color--weak slds-truncate" title="First Label">Phone:</dt>
+                      <dd class="slds-item--detail slds-truncate">{!account.Phone}</dd>
+                      <dt class="slds-item--label slds-text-color--weak slds-truncate" title="Second Label">Website:</dt>
+                      <dd class="slds-item--detail slds-truncate">{!account.Website}</dd>
+                      <dt class="slds-item--label slds-text-color--weak slds-truncate" title="Third Label">Account Owner:</dt>
+                      <dd class="slds-item--detail slds-truncate">{!account.OwnerId}</dd>
+                    </dl>
+                  </div>
+                </div>
+              </lightning:card>
+            </li>
+          </aura:iteration>
+        </ul>
+      </div>
+      <h2 class="slds-text-heading--medium slds-p-vertical--medium">Contacts</h2>
+      <div class="slds-grid">
+        <ul class="slds-col slds-size--1-of-1">
+          <aura:iteration items="{!v.contacts}" var="contact" indexVar="index">
+            <li class="slds-size--1-of-3 slds-show--inline-block">
+              <lightning:card variant="narrow" iconName="standard:contact" class="slds-m-around--small  slds-card_boundary">
+                <aura:set attribute="title">
+                  {!contact.Name}
+                </aura:set>
+                <div class="slds-tile slds-p-horizontal--large">
+                  <div class="slds-tile__detail slds-text-body--small">
+                    <dl class="slds-list--horizontal slds-wrap">
+                      <dt class="slds-item--label slds-text-color--weak slds-truncate" title="First Label">Email Address:</dt>
+                      <dd class="slds-item--detail slds-truncate">{!contact.Email}</dd>
+                      <dt class="slds-item--label slds-text-color--weak slds-truncate" title="Second Label">Title:</dt>
+                      <dd class="slds-item--detail slds-truncate">{!contact.Title}</dd>
+                      <dt class="slds-item--label slds-text-color--weak slds-truncate" title="Third Label">Phone:</dt>
+                      <dd class="slds-item--detail slds-truncate">{!contact.Phone}</dd>
+                    </dl>
+                  </div>
+                </div>
+              </lightning:card>
+            </li>
+          </aura:iteration>
+        </ul>
+      </div>
+      <h2 class="slds-text-heading--medium slds-p-vertical--medium">Leads</h2>
+      <div class="slds-grid">
+        <ul class="slds-col slds-size--1-of-1"> <aura:iteration items="{!v.leads}" var="lead" indexVar="index">
+          <li class="slds-size--1-of-3 slds-show--inline-block">
+            <lightning:card variant="narrow" iconName="standard:lead" class="slds-m-around--small  slds-card_boundary">
+              <aura:set attribute="title">
+                {!lead.Name}
+              </aura:set>
+              <div class="slds-tile slds-p-horizontal--large">
+                <div class="slds-tile__detail slds-text-body--small">
+                  <dl class="slds-list--horizontal slds-wrap">
+                    <dt class="slds-item--label slds-text-color--weak slds-truncate" title="Second Label">Company:</dt>
+                    <dd class="slds-item--detail slds-truncate">{!lead.Company}</dd>
+                    <dt class="slds-item--label slds-text-color--weak slds-truncate" title="Second Label">Email Address:</dt>
+                    <dd class="slds-item--detail slds-truncate">{!lead.Email}</dd>
+                    <dt class="slds-item--label slds-text-color--weak slds-truncate" title="Third Label">Status:</dt>
+                    <dd class="slds-item--detail slds-truncate">{!lead.Status}</dd>
+                    <dt class="slds-item--label slds-text-color--weak slds-truncate" title="First Label">Phone:</dt>
+                    <dd class="slds-item--detail slds-truncate">{!lead.Phone}</dd>
+                  </dl>
+                </div>
+              </div>
+            </lightning:card>
+          </li>
+        </aura:iteration>
+      </ul>
+    </div>
+  </div>
+</aura:component>

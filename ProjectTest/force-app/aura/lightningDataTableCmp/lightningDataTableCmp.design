@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="acctList" label="Collection - Account"/>
+    <design:attribute name="taskList" label="Collection - Task"/>
+</design:component>

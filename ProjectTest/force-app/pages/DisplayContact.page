@@ -1,0 +1,17 @@
+<apex:page controller="AccountController">
+
+contactList
+<apex:pageBlock title="My data table">
+
+<apex:pageBlockTable value="{!contactList}" var="myContact">
+
+<apex:column value="{!myContact.Id}"/>
+
+<apex:column value="{!myContact.FirstName}"/>
+
+<apex:column value="{!myContact.LastName}"/>
+
+</apex:pageBlockTable>
+</apex:pageBlock>
+  
+</apex:page>

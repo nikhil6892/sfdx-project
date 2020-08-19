@@ -1,0 +1,8 @@
+<apex:component access="global" >
+    
+        <!-- <c:pdf value="{!attachment}" width ="100%" height ="200px" /--> 
+    
+    Testing
+          <apex:iframe frameborder="" src="https://nikhiltest1991--c.ap5.content.force.com/servlet/servlet.ImageServer?id=0157F0000028YfQ&oid=00D7F000004e0dV&lastMod=1579565944000"/> 
+    
+</apex:component>

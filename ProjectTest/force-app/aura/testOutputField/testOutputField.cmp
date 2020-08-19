@@ -1,0 +1,18 @@
+<aura:component >
+	<lightning:recordViewForm
+                recordId ="0017F00001DWaQBQA1"
+                objectApiName="Account">
+        
+            <lightning:outputField fieldName="Name">
+            </lightning:outputField>
+            <lightning:outputField fieldName="Industry">
+            </lightning:outputField>
+            <lightning:outputField fieldName="SBR__c">
+            </lightning:outputField>
+            <lightning:outputField fieldName="MODS__c">
+            </lightning:outputField>
+            <lightning:outputField fieldName="Status__c" variant="">
+            </lightning:outputField>
+        
+    </lightning:recordViewForm>
+</aura:component>

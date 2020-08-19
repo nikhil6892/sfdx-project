@@ -1,0 +1,45 @@
+<apex:page >
+   <html>
+      <head>
+         <apex:includeLightning />
+      </head>
+      <body class="slds-scope">
+         <div id="flowContainer" />
+         <script>
+            var statusChange = function (event) {
+               if(event.getParam("status") === "FINISHED") {
+                  // Control what happens when the interview finishes
+ 
+                  var outputVariables = event.getParam("outputVariables");
+                  var key;
+                  for(key in outputVariables) {
+                     if(outputVariables[key].name === "myOutput") {
+                        // Do something with an output variable
+                     }
+                  }
+               }
+            };
+            $Lightning.use("c:DemoApp", function() {
+               // Create the flow component and set the onstatuschange attribute
+               $Lightning.createComponent("lightning:flow", {"onstatuschange":statusChange},
+                  "flowContainer",
+                  function (component) {
+                     // Set the input variables
+                     var inputVariables = [
+                        {
+                                                   name: "recordId",
+                                                   type: "String",
+                                                   value: "0017F00001B4y1ZQAR"
+                         }
+                     ];
+                     
+                     // Start an interview in the flowContainer div, and 
+                     // initializes the input variables.
+                     component.startFlow("Test_Flow_1", inputVariables);
+                  }
+               );
+            });
+         </script>
+      </body>
+   </html>
+</apex:page>

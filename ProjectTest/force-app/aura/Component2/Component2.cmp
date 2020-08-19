@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable">
+    
+    <aura:attribute name="Text" type="String" default=""/>
+    <div class="slds-box slds-theme_default">
+        This is component two.<br/><br/>
+        Text is {!v.Text}.<br/><br/>
+     <lightning:button variant="brand" label="Back to Component One" onclick="{!c.navigateToComOne}"/>
+    </div>
+    
+</aura:component>

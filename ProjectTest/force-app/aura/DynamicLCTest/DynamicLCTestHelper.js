@@ -1,0 +1,5 @@
+({
+	closeTab : function(cmp,helper) {
+        
+    }
+})

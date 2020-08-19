@@ -1,0 +1,10 @@
+.THIS.slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;   
+}
+
+.THIS.customRadioCls .slds-form-element__control .slds-radio{
+   color: lightblue;
+   padding: 450px;
+   
+}

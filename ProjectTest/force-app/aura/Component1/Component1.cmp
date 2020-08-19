@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction,lightning:actionOverride">
+ 
+    <aura:attribute name="Txt" type="String" default=""/>
+    <div class="slds-box slds-theme_default">
+        This is component 1.<br/><br/>
+        <lightning:input type="text" value="{!v.Txt}" label="Enter Text : "/><br/><br/>
+     <lightning:button variant="brand" label="Navigate" onclick="{!c.navigateToComTwo}"/>
+    </div>
+    
+</aura:component>

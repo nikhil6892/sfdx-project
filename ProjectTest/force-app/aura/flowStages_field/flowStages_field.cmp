@@ -1,0 +1,14 @@
+<aura:component implements="lightning:availableForFlowScreens,lightning:availableForFlowActions" controller="FlowUniquePicklistValue">
+    <aura:attribute name="stages" type="String[]"/>
+    <aura:attribute name="currentStage" type="String"/>
+    <aura:attribute name="navStage" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    <lightning:progressIndicator aura:id="progressIndicator" currentStep="{!v.currentStage}" type="path"/>
+   <!-- <lightning:select name="mySelect1" label="PicklistField2:" aura:id="mySelect1" value="{!v.selectedValue}">
+        <aura:iteration items="{!v.stages}" var="item">
+                    <option text="{!item}" value="{!item}" selected="{!item.selected}"/>
+                </aura:iteration>
+            </lightning:select>
+    Hii {!v.selectedValue}-->
+    <lightning:input type="date" name="input1" label="Enter a date" />
+</aura:component>

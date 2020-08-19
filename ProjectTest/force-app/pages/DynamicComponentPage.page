@@ -1,0 +1,18 @@
+<apex:page standardStylesheets="false" applyBodyTag="false" sidebar="false" showHeader="false">
+    <apex:includeLightning />
+    <div id="container"></div>
+    
+    <script>
+    $Lightning.use("c:DemoApp", function()
+    {
+        $Lightning.createComponent(
+            "c:textAreaCMP",
+            {'greeting':'Somnath'},
+            "container",
+            function(cmp)
+        {
+            console.log('component created');
+        });
+    });
+    </script>
+</apex:page>

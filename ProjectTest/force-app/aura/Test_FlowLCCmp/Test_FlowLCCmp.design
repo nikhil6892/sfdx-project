@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="totalValue" label="Total" description=""/>
+    <design:attribute name="resulttotalValue" label="Result" description=""/>
+</design:component>

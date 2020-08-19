@@ -1,0 +1,174 @@
+<!--
+ - Created by lee-anneclarke on 6/20/19.
+ -->
+
+<aura:component implements="forceCommunity:themeLayout"
+                access="global"
+                description="SiemensPLM_Theme">
+
+    <aura:attribute name="headerType" type="String" default="Simple header" />
+    <aura:attribute name="homeSearchTitle" type="String" default="Find Answers. Fast." />
+    <aura:attribute name="fullWidthBody" type="Boolean" default="false" />
+    <aura:attribute name="fullWidthPageTitle" type="Boolean" default="false" />
+    <aura:attribute name="extraPadding" type="Boolean" default="false" />
+
+    <!-- Default Salesforce Components -->
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="footer" type="Aura.Component[]" required="false" />
+
+    <aura:attribute name="searchValue" type="string" />
+    <aura:attribute name="hideSearch" type="Boolean" />
+    <aura:attribute name="searchIsOpen" type="Boolean" default="false" />
+    <!-- <aura:handler event="forceCommunity:routeChange" action="{!c.hideSearch}" /> -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--<aura:handler event="forceCommunity:routeChange" action="{!c.handleRouteChangeforAdobe}" /> -->
+
+   <c:SiemensPLM_Adobe /> 
+
+    <div>
+        <div class="headerNav">
+            <lightning:layout
+                    class="themeContainer"
+                    verticalAlign="center"
+                    multipleRows="true">
+
+                <!-- Logo -->
+                <!--<lightning:layoutItem class="logoWrap"> -->
+                  <!--  <a class="logo-link" href="javascript:void(0);" data-url="/" onclick="{!c.goToUrl}"> -->
+                      <!--  <img class="logoImg" src="/s/sfsites/c/resource/siemensPlmLightning/images/siemens-logo-petrol.svg" alt="Siemens Logo" /> -->
+                   <!-- </a>
+                </lightning:layoutItem> -->
+
+                <!-- Nav -->
+                <lightning:layoutItem class="navbar">
+                    {!v.navBar}
+                </lightning:layoutItem>
+
+                <!-- Utilities -->
+                <lightning:layoutItem class="utils">
+                    <lightning:layout horizontalAlign="end" verticalAlign="center">
+
+                        <lightning:layoutItem class="utilsText">
+                            <p>Siemens Digital Industries Software</p>
+                           
+                        </lightning:layoutItem>
+
+                        <!-- Divider -->
+                        <lightning:layoutItem class="utilsDividerWrap">
+                            <div class="utilsDivider"></div>
+                        </lightning:layoutItem>
+
+                        <!-- Siemens website icon -->
+                        <lightning:layoutItem class="utilsItemWebIcon">
+                            <a href="javascript:void(0);" data-url="https://www.sw.siemens.com" onclick="{!c.goToUrl}" title="Siemens Homepage">
+                                <img src="/s/sfsites/c/resource/siemensPlmLightning/images/siemens-favicon-gray.svg" alt="Siemens S icon" />
+                            </a>
+                        </lightning:layoutItem>
+
+                        <!-- Search icon -->
+                       <!-- <aura:if isTrue="{!v.hideSearch != true}">
+                            <aura:if isTrue="{!v.headerType == 'Simple header'}">
+                                <lightning:layoutItem class="utilsItemSearch">
+                                    <lightning:buttonIcon
+                                            class="headerSearchIcon"
+                                            aura:id="headerSearchIcon"
+                                            iconName="utility:search"
+                                            alternativeText="Search"
+                                            onclick="{!c.toggleSearch}" />
+                                </lightning:layoutItem>
+                            </aura:if>
+                        </aura:if> end-->
+
+                        <!-- Notifications -->
+                        <lightning:layoutItem class="utilsItemNotifs">
+                            <forceCommunity:notifications/>
+                        </lightning:layoutItem>
+
+                        <!-- User Profile menu -->
+                        <lightning:layoutItem class="utilsItemProfile">
+                            {!v.profileMenu}
+                        </lightning:layoutItem>
+
+                    </lightning:layout>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+
+
+        <div class="searchAreaWrap">
+            <!-- Search - homepage -->
+            <aura:if isTrue="{!v.headerType == 'Header with full search area'}">
+                <div class="{!v.extraPadding ? 'searchAreaHomepage xtra' : 'searchAreaHomepage'}">
+                    <h1>{!v.homeSearchTitle}</h1>
+
+                    <div class="container">
+                        <div class="slds-is-relative">
+                            {!v.search}
+                            <lightning:icon
+                                    class="searchFieldIcon"
+                                    iconName="utility:search"
+                                    size="small"
+                                    alternativeText="Search"/>
+                        </div>
+
+                        <!--
+                            Auth: stuff - my followed topics component
+                            Unauth stuff: big buttons component - should be position:absolute
+                        -->
+                    </div> 
+                </div> <!-- end .searchAreaHomepage -->
+            </aura:if>
+
+
+            <!-- Search - inner pages -->
+            <aura:if isTrue="{!v.hideSearch != true}">
+                <aura:if isTrue="{!v.headerType == 'Simple header'}">
+                    <div class="searchAreaInnerPage" aura:id="searchAreaInnerPage">
+                        <div class="themeContainer slds-is-relative">
+                            {!v.search}
+                            <lightning:icon
+                                    class="searchFieldIcon"
+                                    iconName="utility:search"
+                                    size="small"
+                                    alternativeText="Search"/>
+                        </div>
+                    </div>
+                </aura:if>
+            </aura:if>
+        </div>
+
+        
+
+        <div class="{!v.extraPadding ? 'bodyXtra' : ''}">
+
+            <aura:if isTrue="{!v.fullWidthPageTitle}">
+                <div class="bodyWithPageTitle">
+                    {!v.body}
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!!v.fullWidthBody}">
+                <aura:if isTrue="{!!v.fullWidthPageTitle}">
+                    <div class="bodyContainer">
+                        {!v.body}
+                    </div>
+                </aura:if>
+            </aura:if>
+
+            <aura:if isTrue="{!v.fullWidthBody}">
+                {!v.body}
+            </aura:if>
+        </div> 
+
+
+        <!-- Footer -->
+        {!v.footer}
+       <!-- <c:SiemensPLM_Footer /> -->
+
+
+      <!-- <c:SiemensPLM_Adobe /> -->
+
+    </div>
+</aura:component>

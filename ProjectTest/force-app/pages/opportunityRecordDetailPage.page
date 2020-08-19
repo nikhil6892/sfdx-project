@@ -1,0 +1,25 @@
+<apex:page sidebar="false" standardController="Opportunity">
+    <apex:slds />
+    
+<div class="col-9 my-auto">    
+<a href="#" class="btn btn-danger float-left ml-2 cancel" data-url="{!URLFOR($Action.Opportunity.List, $ObjectType.Opportunity)}">
+            <i class="fa fa-arrow-left" style="line-height: 1.5;"></i>
+            <span class="d-none d-md-inline"> 
+            </span>
+          </a>
+    </div>
+    <apex:form >
+    <apex:commandButton action="{!URLFOR($Action.Opportunity.List, $ObjectType.Opportunity)}" value="Back"/>
+    
+    <apex:pageBlock title="Opportunity View">
+        
+        <apex:pageBlockSection >
+            
+            <apex:outputField value="{! Opportunity.Name}"/>
+            <apex:outputField value="{! Opportunity.Amount}"/>
+            <apex:outputField value="{! Opportunity.CloseDate}"/>
+            <apex:outputField value="{! Opportunity.Account.Name}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

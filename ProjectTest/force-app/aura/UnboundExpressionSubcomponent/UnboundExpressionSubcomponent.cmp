@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="attr2" type="String" default="I love Lightning"/>
+    
+    <lightning:formattedText value="{#v.attr2}"/>
+    <lightning:button class="slds-m-left_medium" variant="brand" label="Submit" onclick="{!c.handleButtonClick}"/>
+    
+</aura:component>

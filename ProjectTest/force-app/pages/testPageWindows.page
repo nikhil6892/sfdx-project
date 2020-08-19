@@ -1,0 +1,24 @@
+<apex:page >
+<script>
+function redirect() {
+if(UITheme.getUITheme() === "Theme4d" || UITheme.getUITheme() === "Theme4t" || UITheme.getUITheme() === "Theme4u")
+{
+//sforce.one.navigateToURL('/007');
+    alert("Hii");
+sforce.one.navigateToURL('/lightning/o/Task/home');
+}
+else
+{
+    alert("Bye");
+    this.parent.location.href = '/007';
+    //window.location.href = '/007';
+}
+   // window.location.href = '/007';
+}
+
+window.onload = redirect();
+</script>
+<!--
+<apex:enhancedList height="600" type="Activity" customizable="false" rowsPerPage="25"/>
+-->
+</apex:page>

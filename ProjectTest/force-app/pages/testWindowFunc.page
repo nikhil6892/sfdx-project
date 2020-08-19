@@ -1,0 +1,55 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+<html>
+<head>
+  <apex:slds />
+</head>
+<body style="background-color: #F0F2F5">
+	<strong>This gray area is Visualforce page embedded in the Lightning Component with an iframe:</strong>
+
+	<div class="slds-form-element">
+		<label class="slds-form-element__label" for="message">Message:</label>
+		<div class="slds-form-element__control">
+			<input id="message" class="slds-input" type="text" />
+		</div>
+	</div>
+	<button class="slds-button slds-button--neutral slds-m-vertical--xx-small" onclick="sendToLC()">Send to LC</button>
+	<div class="slds-form-element">
+		<label class="slds-form-element__label" for="lcMessages">Messages Received from Lightning Component:</label>
+		<div class="slds-form-element__control">
+			<textarea class="slds-textarea" id="lcMessages"></textarea>
+		</div>
+	</div>
+
+    <script>
+
+		var lexOrigin = "https://cc200-dev-ed.lightning.force.com";
+
+		var lcMessagesEl = document.getElementById("lcMessages");
+
+		window.addEventListener("message", function(event) {
+			if (event.origin !== lexOrigin) {
+				// Not the expected origin: reject message
+				return;
+			}
+			// Only handle messages we are interested in            
+			if (event.data.name === "com.mycompany.chatmessage") {
+				var messages = lcMessagesEl.value;
+				messages = messages + event.data.payload + "\n";
+				lcMessages.value = messages;
+			}
+		}, false);
+
+		function sendToLC() {
+			var payload = document.getElementById("message").value;
+			var message = {
+				name: "com.mycompany.chatmessage",
+				payload: payload
+			};
+			parent.postMessage(message, lexOrigin);
+		}
+
+    </script>
+        
+</body>
+</html>    
+</apex:page>

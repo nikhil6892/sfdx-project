@@ -1,0 +1,40 @@
+<apex:page controller="paramtest" docType="html-5.0">
+<script type="text/javascript">
+    function submitData() {
+        var uname = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        debugger;
+        if(password.length != 0){
+            if(password.charAt(0)!='$')
+            document.getElementById('password').value = '$'+password;
+        }
+        submitActionFunction(uname, password);
+    }
+    
+    function resetData(){
+        debugger;
+        var password = document.getElementById('password').value;
+        if(password.charAt(0) == '$')
+        document.getElementById('password').value = password.substring(1);
+    }
+    </script>
+    <apex:slds /> 
+<apex:form >
+        <apex:actionFunction name="submitActionFunction" action="{!submitForm}"  reRender="actionFun">
+            <apex:param name="uname" assignTo="{!username}" value="" />
+            <apex:param name="pwd" assignTo="{!password}" value="" />
+        </apex:actionFunction>
+        <center>
+            <div class="slds-form-element__control">
+            Username: <input type="text" class=".slds-input_height" id="username" value=""/> <br/> <br/>
+            Amount:   <input type="text" id="password" onblur="submitData();" onfocus="resetData();" value=""/> <br/> <br/>
+            <input type="button"  class="slds-button slds-button_brand"  onclick="submitData();" value="Submit From HTML Button"/> &nbsp; &nbsp;
+            <apex:commandButton value="Submit From Apex Button" onclick="submitData();" reRender="sapex"/>
+            <div>
+            <apex:outputLabel id="actionFun" value=""> Hello your name is {!password}
+            </apex:outputLabel>
+            </div>
+            </div>
+        </center>
+    </apex:form>  
+</apex:page>

@@ -1,0 +1,20 @@
+
+--boundary_string
+Content-Disposition: form-data; name="entity_document";
+Content-Type: application/json
+
+{  
+    "Description" : "Marketing brochure for Q1 2011",
+    "Keywords" : "marketing,sales,update",
+    "FolderId" : "005D0000001GiU7",
+    "Name" : "Marketing Brochure Q1",
+    "Type" : "pdf"
+}
+
+--boundary_string
+Content-Type: application/pdf
+Content-Disposition: form-data; name="Body"; filename="2011Q1MktgBrochure.pdf"
+
+Binary data goes here.
+
+--boundary_string--

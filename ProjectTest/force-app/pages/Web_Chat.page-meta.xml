@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>46.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>A test website for using web chat</description>
+    <label>Web Chat</label>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>14</minorNumber>
+        <namespace>ltnadptn</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>7</minorNumber>
+        <namespace>sf_com_apps</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>0</minorNumber>
+        <namespace>test1234567789</namespace>
+    </packageVersions>
+</ApexPage>

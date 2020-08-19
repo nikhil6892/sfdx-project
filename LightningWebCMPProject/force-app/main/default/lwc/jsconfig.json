@@ -1,0 +1,56 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/accountManagerCMP": [
+                "accountManagerCMP/accountManagerCMP.js"
+            ],
+            "c/app": [
+                "app/app.js"
+            ],
+            "c/childCmpEvent": [
+                "childCmpEvent/childCmpEvent.js"
+            ],
+            "c/childComp": [
+                "childComp/childComp.js"
+            ],
+            "c/contactList": [
+                "contactList/contactList.js"
+            ],
+            "c/lWCInputFieldPicklistSP20": [
+                "lWCInputFieldPicklistSP20/lWCInputFieldPicklistSP20.js"
+            ],
+            "c/linkToAnotherCmp": [
+                "linkToAnotherCmp/linkToAnotherCmp.js"
+            ],
+            "c/lwcDataTable": [
+                "lwcDataTable/lwcDataTable.js"
+            ],
+            "c/myComponent": [
+                "myComponent/myComponent.js"
+            ],
+            "c/parentCMPEvent": [
+                "parentCMPEvent/parentCMPEvent.js"
+            ],
+            "c/parentComponent": [
+                "parentComponent/parentComponent.js"
+            ],
+            "c/testContactCMP": [
+                "testContactCMP/testContactCMP.js"
+            ],
+            "c/textAreaCMP": [
+                "textAreaCMP/textAreaCMP.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

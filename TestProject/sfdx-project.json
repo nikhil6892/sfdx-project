@@ -1,0 +1,18 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "package": "RolesPackage4",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": false
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "47.0",
+    "packageAliases": {
+        "RolesPackage3": "0HoB00000008PEKKA2",
+        "RolesPackage4": "0HoB0000000CazQKAS"
+    }
+}

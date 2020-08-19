@@ -1,0 +1,22 @@
+<apex:page standardController="Contact">
+    
+    <apex:detail inlineEdit="true"/>  
+    <apex:includeScript value="/lightning/lightning.out.js" />
+ 
+    <script>
+        $Lightning.use("c:DemoApp", function() {
+            $Lightning.createComponent(
+                "c:modalBox",
+                {
+              "recordId" : "{!$CurrentPage.parameters.id}"
+               },
+                "theLead",
+                function(cmp) {
+                    console.log("Component created!");
+                    console.log(cmp);
+                });
+            });
+    </script>
+    
+    <div id="theLead"></div>
+</apex:page>
